@@ -8,7 +8,12 @@
                             {{ad.name}}
                         </v-card-title>
                         <v-card-text>
-                            {{ad.description}}
+                            <div>
+                                {{ad.description}}
+                            </div>
+                            <div>
+                                {{ad.payment}}
+                            </div>
                         </v-card-text>
                     </v-card>
                 </v-col>
@@ -21,10 +26,13 @@
     export default{
         name : "ListItem",
         layout: "frontend",
-        computed : {
-            ad(){
-                return this.$store.state.ads.list[this.$route.params.id]
+        data () {
+            return {
+                ad: {}
             }
+        },
+        async fetch(){
+            this.ad = await this.$axios.$get("/list/"+this.$route.params.id)
         }
     }
 </script>

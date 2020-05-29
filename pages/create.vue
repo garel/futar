@@ -70,16 +70,25 @@ export default {
         }
     },
     methods : {
-        add (e) {
-            this.$store.commit('ads/add', this.formData)
-            this.alert=true
-            let prop
-            for(prop in this.formData){
-                this.formData[prop] = ""
-            }
-            setTimeout(() => {
-                this.alert = false
-            }, 5000);
+        async add () {
+            await this.$axios.$post("/list/create",this.formData).then(
+                function(){
+                    console.log("anyád");
+                    this.alert = true;
+                    let prop;
+
+                    for(prop in this.formData){
+                        this.formData[prop] = ""
+                    }
+
+                    setTimeout(() => {
+                        this.alert = false
+                    }, 5000);
+                },
+                function() {
+                    alert("Error");
+                }
+            );
         },
     }
 };
