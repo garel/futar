@@ -1,5 +1,11 @@
 import colors from 'vuetify/es5/util/colors'
 
+let baseUrl = "http://localhost:8000/api";
+let urlArg = process.argv.some(arg => /apiBase/.test(arg));
+if(urlArg){
+  baseUrl = process.argv.find(arg => /apiBase/.test(arg)).split("=")[1];
+}
+
 export default {
   mode: 'universal',
   /*
@@ -44,7 +50,7 @@ export default {
     '@nuxtjs/axios',
   ],
   axios:{
-    baseURL: "http://localhost:8000/api/"
+    baseURL: baseUrl
   },
   /*
   ** vuetify module configuration
