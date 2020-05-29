@@ -71,24 +71,24 @@ export default {
     },
     methods : {
         async add () {
-            await this.$axios.$post("/list/create",this.formData).then(
-                function(){
-                    console.log("anyád");
-                    this.alert = true;
-                    let prop;
+            try{
+                await this.$axios.$post("/list/create",this.formData);
+            }
+            catch (e) {
+                alert("Error");
+            }
+            finally {
+                this.alert = true;
+                let prop;
 
-                    for(prop in this.formData){
-                        this.formData[prop] = ""
-                    }
-
-                    setTimeout(() => {
-                        this.alert = false
-                    }, 5000);
-                },
-                function() {
-                    alert("Error");
+                for(prop in this.formData){
+                    this.formData[prop] = ""
                 }
-            );
+
+                setTimeout(() => {
+                    this.alert = false
+                }, 5000);
+            }
         },
     }
 };
