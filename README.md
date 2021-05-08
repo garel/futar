@@ -1,6 +1,6 @@
 # futar
 
-> Futar micro service test
+Futar micro service frontend
 
 ## Build Setup
 
