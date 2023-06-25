@@ -13,10 +13,10 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.10.3",
     "axios": "^0.21.2",
-    "nuxt": "^2.15.8"
+    "nuxt": "^3.6.0"
   },
   "devDependencies": {
     "@mdi/font": "^5.1.45",
-    "@nuxtjs/vuetify": "^1.0.0"
+    "@nuxtjs/vuetify": "^1.12.3"
   }
 }
